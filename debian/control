@@ -1,0 +1,52 @@
+Source: readline5
+Section: libs
+Priority: extra
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 8.1.3), dpatch, lsb-release, libtinfo-dev, libncurses5-dev (>= 5.6), mawk | awk, texinfo, autotools-dev
+
+Package: libreadline5
+Architecture: any
+Depends: readline-common, ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Section: libs
+Description: GNU readline and history libraries, run-time libraries
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
+
+Package: libreadline-gplv2-dev
+Architecture: any
+Depends: libreadline5 (= ${binary:Version}), libtinfo-dev, ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libreadline-dev, libreadline5-dev, libreadline6-dev
+Replaces: libreadline5-dev
+Multi-Arch: same
+Section: libdevel
+Description: GNU readline and history libraries, development files
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
+ .
+ This package contains as well the readline documentation in info format.
+
+Package: libreadline5-dbg
+Architecture: any
+Depends: libreadline5 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Conflicts: libreadline-dbg
+Provides: libreadline-dbg
+Suggests: libreadline-gplv2-dev
+Section: debug
+Description: GNU readline and history libraries, debugging libraries
+ The GNU readline library aids in the consistency of user interface
+ across discrete programs that need to provide a command line
+ interface.
+ .
+ The GNU history library provides a consistent user interface for
+ recalling lines of previously typed input.
